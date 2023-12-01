@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_citibike_stations
+    description: each row represents a citibike station
+    columns:
+      - name: station_id
+        description: Primary key
+        tests:         
+          - unique
+          - not_null
+      - name: name
+        description: Public name of the station
+      - name: rental_methods
+        description: array of enumerables containing the payment methods accepted at this station
+        # tests:
+        #       - accepted_values:
+        #           values: [KEY, CREDITCARD]
+      - name: capacity
+        description: number of total docking points installed at this station, both available and unavailable
+      - name: num_bikes_available
+        description: Number of bikes available for rental
+      - name: num_bikes_disabled
+        description: 	Number of disabled bikes at the station
+      - name: num_docks_available
+        description: Number of docks accepting bike returns
+      - name: num_docks_disabled
+        description: 	Number of empty but disabled dock points at the station                           
+      - name: is_installed
+        description: Is the station currently on the street?
+      - name: is_renting
+        description: Is the station currently renting bikes?
+      - name: is_returning
+        description: Is the station accepting bike returns?
+      - name: last_reported
+        description: timestamp indicating the last time this station reported its status to the backend, in NYC local time
+      
