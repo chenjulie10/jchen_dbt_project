@@ -1,8 +1,8 @@
 SELECT
 -- need to make a primary key using dbt utils package 
 (tripduration)/60 as trip_length_mins,
-starttime,
-stoptime,
+starttime as trip_start_ts,
+stoptime as trip_end_ts,
 start_station_id,
 start_station_name,
 start_station_latitude,

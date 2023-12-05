@@ -42,11 +42,11 @@ models:
       #   tests: 
       #     - unique
       #     - not_null
-      - name: starttime
+      - name: trip_start_ts
         description: Trip start time, in NYC local time 
         tests: 
           - not_null
-      - name: stoptime
+      - name: trip_end_ts
         description: Trip end time, in NYC local time 
         tests: 
             - not_null
