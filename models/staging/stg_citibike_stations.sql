@@ -17,6 +17,6 @@ is_installed,
 is_renting,
 is_returning,
 eightd_has_available_keys,
-last_reported as last_reported_ts_et
+last_reported as last_reported_ts
 FROM `bigquery-public-data.new_york_citibike.citibike_stations`
 WHERE is_installed = TRUE -- filter for stations that are currently on the streets 
