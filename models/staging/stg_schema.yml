@@ -9,8 +9,7 @@ models:
         tests:         
           - unique
           - not_null
-      - name: name
-        description: Public name of the station
+      - name: station_name
       - name: rental_methods
         description: array of enumerables containing the payment methods accepted at this station
         # tests:
@@ -32,6 +31,35 @@ models:
         description: Is the station currently renting bikes?
       - name: is_returning
         description: Is the station accepting bike returns?
-      - name: last_reported
+      - name: last_reported_ts
         description: timestamp indicating the last time this station reported its status to the backend, in NYC local time
-      
+  
+  - name: stg_citibike_trips       
+    description: citibike trip 
+    columns: 
+      # - name: 
+      #   description: Primary Key 
+      #   tests: 
+      #     - unique
+      #     - not_null
+      - name: trip_start_ts
+        description: Trip start time, in NYC local time 
+        tests: 
+          - not_null
+      - name: trip_end_ts
+        description: Trip end time, in NYC local time 
+        tests: 
+            - not_null
+      - name: start_station_id
+      - name: start_station_name
+      - name: end_station_id
+      - name: end_station_name
+      - name: birth_year
+      - name: user_type
+        description: User Type (Customer = 24-hour pass or 7-day pass user, Subscriber = Annual Member)
+        tests:
+            - accepted_values:
+                values:
+                  - "Subscriber"
+                  - "Customer"
+ 
