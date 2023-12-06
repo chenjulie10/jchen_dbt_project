@@ -37,11 +37,11 @@ models:
   - name: stg_citibike_trips       
     description: citibike trip 
     columns: 
-      # - name: 
-      #   description: Primary Key 
-      #   tests: 
-      #     - unique
-      #     - not_null
+      - name: pk
+        description: creating a primary key from combining bike id, trip start time and start station
+        tests: 
+          - unique
+          - not_null
       - name: trip_start_ts
         description: Trip start time, in NYC local time 
         tests: 
@@ -51,7 +51,14 @@ models:
         tests: 
             - not_null
       - name: start_station_id
+        tests: 
+            - not_null
+      - name: bikeid
+        tests: 
+            - not_null
       - name: start_station_name
+        tests: 
+            - not_null
       - name: end_station_id
       - name: end_station_name
       - name: birth_year
