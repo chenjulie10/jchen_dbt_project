@@ -50,6 +50,12 @@ models:
         description: Trip end time, in NYC local time 
         tests: 
             - not_null
+      - name: trip_start_date
+        tests: 
+          - not_null
+      - name: trip_end_date
+        tests: 
+            - not_null
       - name: start_station_id
         tests: 
             - not_null

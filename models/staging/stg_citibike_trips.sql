@@ -23,3 +23,4 @@ select
     customer_plan
 from `bigquery-public-data.new_york_citibike.citibike_trips`
 where starttime is not null
+
