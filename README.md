@@ -8,6 +8,7 @@ I have created some staging, intermediate and mart models for Citibike data to a
 You can find queries for the dbt models in the Analyses folder. 
 
 Best practices that I considered in the dbt project: 
-- making sure there is a primary key for each model and creating one if there isn't using dbt macro 
-- incorporating tests for columns
+- is there a primary key? 
+- deduplication
+- Incorporating tests for specific columns to ensure values are not null
   
