@@ -5,7 +5,7 @@ I have created some staging, intermediate and mart models for Citibike data to a
 - What is the average length of citibike trips?
 - Which citibike stations need to accept more returns? (look at the # of end trips/# of docks available) 
 
-You can find queries for the dbt models in the queries folder. 
+You can find queries for the dbt models in the Analyses folder. 
 
 Best practices that I considered in the dbt project: 
 - making sure there is a primary key for each model and creating one if there isn't using dbt macro 
