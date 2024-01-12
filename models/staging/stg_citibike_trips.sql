@@ -1,5 +1,5 @@
 select
-    {{ dbt_utils.generate_surrogate_key(["bikeid", "starttime", "start_station_id"]) }}
+    {{ dbt_utils.generate_surrogate_key(["bikeid", "starttime", "start_station_id", "end_station_id"]) }}
     as pk,
     round((tripduration) / 60, 1) as trip_length_mins,
     starttime as trip_start_ts,
@@ -16,11 +16,12 @@ select
     end_station_name,
     end_station_latitude,
     end_station_longitude,
-    bikeid as bike_id,
+    bikeid,
     usertype as user_type,
     birth_year,
     gender,
     customer_plan
 from `bigquery-public-data.new_york_citibike.citibike_trips`
-where starttime is not null
+where starttime is not null 
+and bikeid is not null 
 

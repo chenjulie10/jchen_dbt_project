@@ -42,6 +42,9 @@ models:
         tests: 
           - unique
           - not_null
+      - name: bikeid 
+        tests:
+          - not_null
       - name: trip_start_ts
         description: Trip start time, in NYC local time 
         tests: 
@@ -57,9 +60,6 @@ models:
         tests: 
             - not_null
       - name: start_station_id
-        tests: 
-            - not_null
-      - name: bikeid
         tests: 
             - not_null
       - name: start_station_name
