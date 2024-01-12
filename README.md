@@ -1,15 +1,14 @@
-Welcome to your new dbt project!
+### CITIBIKE DBT PROJECT
+I have created some staging, intermediate and mart models for Citibike data to answer some questions: 
+- Which citibike stations are the most popular? (In terms of trips started)
+- Which citibike stations are most popular (trips to bikes enabled ratio)? 
+- What is the average length of citibike trips?
+- Which citibike stations need to accept more returns? (look at the # of end trips/# of docks available) 
 
-### Using the starter project
+You can find queries for the dbt models in the Analyses folder. 
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Best practices that I considered in the dbt project: 
+- is there a primary key? 
+- deduplication
+- Incorporating tests for specific columns to ensure values are not null
+  
