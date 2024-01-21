@@ -15,7 +15,7 @@ models:
         # tests:
         #       - accepted_values:
         #           values: [KEY, CREDITCARD]
-      - name: capacity
+      - name: station_capacity
         description: number of total docking points installed at this station, both available and unavailable
       - name: num_bikes_available
         description: Number of bikes available for rental
