@@ -15,7 +15,6 @@ select
 trip_year,
 start_station_name,
 total_trips_started,
-total_round_trips,
-ROW_NUMBER() OVER (partition by trip_year order by total_trips_started desc) as popularity_rank
+total_round_trips
 from trips 
     
