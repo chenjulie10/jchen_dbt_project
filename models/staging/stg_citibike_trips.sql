@@ -24,7 +24,7 @@ select
     customer_plan
 from `bigquery-public-data.new_york_citibike.citibike_trips` t
 left join {{ ref('month_mapping') }} m
-    on extract(month from date(starttime)) = m.number
+    on extract(month from date(t.starttime)) = m.number
 where starttime is not null 
 and bikeid is not null 
 
