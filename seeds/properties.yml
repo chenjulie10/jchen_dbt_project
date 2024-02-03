@@ -1,0 +1,17 @@
+version: 2
+
+# specifying column_types for certain columns where the type inference is not what is expected
+seeds:
+  - name: amenities_changelog
+    config:
+      column_types:
+        change_at: timestamp
+  - name: calendar
+    config:
+      column_types:
+        reservation_id: string
+  - name: listings
+    config:
+      column_types:
+        host_since: timestamp
+        price: float
