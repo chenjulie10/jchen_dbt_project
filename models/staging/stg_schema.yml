@@ -1,6 +1,51 @@
 version: 2
 
 models:
+  - name: stg_amenities_changelog
+    columns:
+      - name: changelog_pk
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_calendar 
+    columns:
+      - name: listing_date
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_listings
+    columns:
+      - name: listing_id
+        tests: 
+          - unique
+          - not_null
+  
+  - name: int_daily_listing 
+    columns: 
+      - name: listing_date
+        tests:
+          - unique
+          - not_null
+            
+
+  - name: listing_by_day
+    columns: 
+      - name: listing_date
+        tests:
+          - unique
+          - not_null
+
+
+  # - name: stg_generated_reviews
+  #   columns:
+  #     - name: review_pk
+  #       tests: 
+  #         - unique
+
+
+
   - name: stg_citibike_stations
     description: each row represents a citibike station
     columns:
