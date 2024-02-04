@@ -15,3 +15,7 @@ seeds:
       column_types:
         host_since: timestamp
         price: float
+  - name: generated_reviews
+    config:
+      column_types:
+        id: string
