@@ -7,8 +7,8 @@ listing_id,
 minimum_nights,
 maximum_nights,
 calendar_date,
-CASE WHEN date = lag(date) over (partition by listing_id order by date asc) + 1
-     THEN 1 else 0 end as consecutive_avail_yn,
+CASE WHEN calendar_date = lag(calendar_date) over (partition by listing_id order by calendar_date asc) + 1
+     THEN 1 else 0 end as consecutive_avail_yn
 FROM {{ ref('listing_by_day') }} 
 where available = 't' 
 -- AND has_lockbox = 1 
@@ -24,8 +24,8 @@ calendar_date,
 consecutive_avail_yn,
 CASE WHEN consecutive_avail_yn = 0 THEN 0
     ELSE
-        ROW_NUMBER() OVER (PARTITION BY listing_id ORDER BY date)
-        - ROW_NUMBER() OVER (PARTITION BY listing_id, consecutive_avail_yn ORDER BY date ASC)
+        ROW_NUMBER() OVER (PARTITION BY listing_id ORDER BY calendar_date)
+        - ROW_NUMBER() OVER (PARTITION BY listing_id, consecutive_avail_yn ORDER BY calendar_date ASC)
     end AS grp
 from consecutive_date
 )
@@ -39,7 +39,7 @@ maximum_nights,
 grp,
 min(calendar_date) as min_date,
 max(calendar_date) as available_end_date,
-DATE_ADD(min(date), INTERVAL -1 DAY) available_start_date
+DATE_ADD(min(calendar_date), INTERVAL -1 DAY) as available_start_date
 from group_dates
 group by 1,2,3,4
 having grp > 0 
@@ -56,7 +56,8 @@ from avail_dates
 
 , final AS (
 select *
-, CASE WHEN maximum_nights <= nights_available THEN maximum_nights ELSE nights_available end as unoccupied_nights
+, CASE WHEN maximum_nights <= nights_available THEN maximum_nights ELSE nights_available end as unoccupied_nights 
+-- taking into consideration the max # of nights property owner allows 
 from int
 )
 
