@@ -15,4 +15,4 @@ Some practices I incorporated across my models:
 - Ensuring deduplication
 - Using jinja templating to establish reusable code
 - Adding tests on columns
-- Using seeds for mapping
+- Using seeds for mapping and csv files 
