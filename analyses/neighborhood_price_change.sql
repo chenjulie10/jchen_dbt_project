@@ -1,12 +1,12 @@
 --Write a query to find the average price increase for each neighborhood from July 12th 2021 to July 11th 2022.
 
-with old_year AS (
+with last_year AS (
  select
 neighborhood,
 listing_id,
 price
 from  {{ ref('listing_by_day') }}
-where date = '2021-07-12'
+where calendar_date = '2021-07-12'
 )
 
 
@@ -16,7 +16,7 @@ neighborhood,
 listing_id,
 price
 from  {{ ref('listing_by_day') }}
-where date = '2022-07-11'
+where calendar_date = '2022-07-11'
 )
 
 
@@ -27,7 +27,7 @@ a.listing_id,
 a.price as old_price,
 b.price as new_price,
 b.price - a.price as price_diff
-from old_year a
+from last_year a
  left join new_year b
    on a.listing_id = b.listing_id
 )
@@ -35,7 +35,7 @@ from old_year a
 
 select
 neighborhood,
-round(avg(price_diff),2) as price_increase
+round(avg(price_diff),2) as avg_price_change
 from query
 group by 1
 order by 1 asc
