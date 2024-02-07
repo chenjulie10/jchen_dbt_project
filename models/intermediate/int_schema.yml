@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_daily_listing
+    columns:
+      - name: listing_date
+        tests:
+          - unique
+          - not_null
+              
+              

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: listing_by_day
+    columns:
+      - name: listing_date
+        tests:
+          - unique
+          - not_null
+              
+              

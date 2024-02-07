@@ -42,3 +42,4 @@ left join {{ ref('stg_listings')}} l
   on c.listing_id = l.listing_id
 left join scores
   on c.listing_id = scores.listing_id 
+  and c.calendar_date = scores.calendar_date
