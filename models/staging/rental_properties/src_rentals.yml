@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: dbt_chenjulie10
+    database: julies-dbt-project
+    schema: dbt_chenjulie10
+    tables:
+      - name: amenities_changelog
+      - name: calendar 
+      - name: generated_reviews 
+      - name: listings 

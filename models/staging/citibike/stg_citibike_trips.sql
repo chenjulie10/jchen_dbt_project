@@ -4,7 +4,7 @@ select
     round((tripduration) / 60, 1) as trip_length_mins,
     starttime as trip_start_ts,
     date(starttime) as trip_start_date,
-    m.month as trip_start_month,
+    FORMAT_DATE('%B', starttime) as trip_start_month,
     extract(hour from starttime) as trip_start_hr,
     stoptime as trip_end_ts,
     date(stoptime) as trip_end_date,
@@ -22,9 +22,7 @@ select
     birth_year,
     gender,
     customer_plan
-from `bigquery-public-data.new_york_citibike.citibike_trips` t
-left join {{ ref('month_mapping') }} m
-    on extract(month from date(t.starttime)) = m.number
+from {{ source('citibike', 'citibike_trips') }} 
 where starttime is not null 
 and bikeid is not null 
 
