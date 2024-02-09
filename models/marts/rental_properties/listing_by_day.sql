@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 {% set amenities = {
     "Lockbox": "lockbox",
     "First aid kit": "first_aid",
