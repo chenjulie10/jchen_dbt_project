@@ -10,6 +10,6 @@
     )
 }}
 
-select * from {{ ref('stg_amenities_changelog') }}
+select * from {{ source("dbt_chenjulie10", "amenities_changelog") }}
 
 {% endsnapshot %}
