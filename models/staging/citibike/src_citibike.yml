@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: citibike
+    database: bigquery-public-data
+    schema: new_york_citibike 
+    tables:
+      - name: citibike_trips
+      - name: citibike_stations

@@ -14,7 +14,7 @@ num_docks_available,
 num_docks_disabled,
 eightd_has_available_keys,
 last_reported as last_reported_ts
-FROM `bigquery-public-data.new_york_citibike.citibike_stations`
+FROM {{ source('citibike','citibike_stations') }}
 WHERE is_installed = TRUE 
 and is_renting = TRUE
 and is_returning = TRUE

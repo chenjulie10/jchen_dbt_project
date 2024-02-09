@@ -9,7 +9,7 @@ available,
 price, 
 minimum_nights,
 maximum_nights
-from `julies-dbt-project.dbt_chenjulie10.calendar`
+from {{ source('dbt_chenjulie10','calendar') }} 
 
 
 

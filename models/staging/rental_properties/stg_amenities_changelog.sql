@@ -21,4 +21,4 @@ case when amenities like '%{{amenity}}%' then 1 else 0 end as has_{{name}}
 
 {% endfor %}
 
-from `julies-dbt-project.dbt_chenjulie10.amenities_changelog`
+from {{ source('dbt_chenjulie10','amenities_changelog') }} 
