@@ -4,7 +4,7 @@ select
             ["bikeid", "starttime", "start_station_id", "end_station_id"]
         )
     }} as pk,
-    round((tripduration) / 60, 1) as trip_length_mins,
+    {{ secs_to_mins('tripduration', decimal_places=0) }} as trip_length_mins,
     starttime as trip_start_ts,
     date(starttime) as trip_start_date,
     format_date('%B', starttime) as trip_start_month,
