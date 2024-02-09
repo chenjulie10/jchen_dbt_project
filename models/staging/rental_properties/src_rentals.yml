@@ -6,6 +6,10 @@ sources:
     schema: dbt_chenjulie10
     tables:
       - name: amenities_changelog
-      - name: calendar 
-      - name: generated_reviews 
-      - name: listings 
+        description: csv file in seeds folder
+      - name: calendar
+        description: csv file in seeds folder
+      - name: generated_reviews
+        description: csv file in seeds folder
+      - name: listings
+        description: csv file in seeds folder
