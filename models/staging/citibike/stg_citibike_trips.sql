@@ -1,10 +1,13 @@
 select
-    {{ dbt_utils.generate_surrogate_key(["bikeid", "starttime", "start_station_id", "end_station_id"]) }}
-    as pk,
+    {{
+        dbt_utils.generate_surrogate_key(
+            ["bikeid", "starttime", "start_station_id", "end_station_id"]
+        )
+    }} as pk,
     round((tripduration) / 60, 1) as trip_length_mins,
     starttime as trip_start_ts,
     date(starttime) as trip_start_date,
-    FORMAT_DATE('%B', starttime) as trip_start_month,
+    format_date('%B', starttime) as trip_start_month,
     extract(hour from starttime) as trip_start_hr,
     stoptime as trip_end_ts,
     date(stoptime) as trip_end_date,
@@ -22,7 +25,5 @@ select
     birth_year,
     gender,
     customer_plan
-from {{ source('citibike', 'citibike_trips') }} 
-where starttime is not null 
-and bikeid is not null 
-
+from {{ source("citibike", "citibike_trips") }}
+where starttime is not null and bikeid is not null
